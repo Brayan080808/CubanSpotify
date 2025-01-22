@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="bg-black mx-auto text-white ">
+  <div class="bg-black max-w-2xl mx-auto  h-screen">
+    <div class="py-4 px-7">
+      <ion-button 
+      (click)="logout()"
+      expand=""
+      color="#2BDA1B"
+      class="bg-[#2BDA1B] hover:text-white mb-8 rounded-lg"
+    >
+      Cerrar Sesión
+    </ion-button>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <h1 class="text-3xl font-bold mb-2 text-white">My Playlist</h1>
+    <p class="text-[#2BDA1B] font-semibold mb-6">{{ songs.length }} canciones</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    </div>
+
+
+    <div class="space-y-4 p-4 bg-black">
+      <div *ngFor="let song of songs" 
+           class="flex items-center justify-between p-3 hover:bg-gray-800 rounded-lg transition-colors">
+        <div class="flex">
+          <img [src]="song.image" alt="Descripción de la imagen" class="w-10 h-10 mr-2 rounded-full object-cover" />
+          <div>
+            <h3 class="font-medium text-white">{{ song.title }}</h3>
+            <p class="text-gray-400 text-sm">{{ song.artist }}</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-gray-400">{{ song.duration }}</span>
+          <span class="text-[#2BDA1B] font-semibold hover:text-white">
+            ⋮
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
